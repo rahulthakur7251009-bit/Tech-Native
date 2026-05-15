@@ -1,68 +1,49 @@
 import { Link } from 'react-router-dom'
 import './Footer.css'
 
-const PHONE = import.meta.env.VITE_BUSINESS_PHONE || '+91 7880275152'
-const EMAIL = import.meta.env.VITE_BUSINESS_EMAIL || 'info@nativesoftservices.com'
-const ADDR_DELHI = import.meta.env.VITE_ADDRESS_DELHI || 'Shahdara, Delhi 110094'
-const ADDR_GZB = import.meta.env.VITE_ADDRESS_GHAZIABAD || 'Lal Kuan, Ghaziabad UP 201009'
-
-const services = ['Web Design','SEO','ORM','Social Marketing','Google Ads','Branding','Strategy']
-const quickLinks = [['/', 'Home'],['/about','About'],['/services','Services'],['/contact','Contact']]
-
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="container">
-        <div className="footer-grid">
+      <div className="container footer-container">
+        <div className="footer-top grid">
           <div className="footer-brand">
-            <Link to="/" className="footer-logo">
-              <span className="logo-dot"></span>
-              <span className="logo-text">TechNative</span>
-            </Link>
-            <p className="footer-desc">
-              Professional digital solutions for modern businesses. We build websites that work and strategies that grow.
-            </p>
+            <h2 className="footer-logo">TECH<span>NATIVE</span></h2>
+            <p>Building the digital infrastructure for modern commerce.</p>
           </div>
-
+          
           <div className="footer-col">
-            <h4 className="footer-title">Services</h4>
+            <h4 className="footer-label">Navigation</h4>
             <ul className="footer-links">
-              {services.map(s => (
-                <li key={s}><Link to="/services">{s}</Link></li>
-              ))}
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/services">Services</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
 
           <div className="footer-col">
-            <h4 className="footer-title">Company</h4>
+            <h4 className="footer-label">Social</h4>
             <ul className="footer-links">
-              {quickLinks.map(([to, label]) => (
-                <li key={to}><Link to={to}>{label}</Link></li>
-              ))}
+              <li><a href="#">LinkedIn</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Instagram</a></li>
             </ul>
           </div>
 
           <div className="footer-col">
-            <h4 className="footer-title">Contact</h4>
+            <h4 className="footer-label">Contact</h4>
             <ul className="footer-links">
-              <li><a href={`tel:${PHONE}`}>{PHONE}</a></li>
-              <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
-              <li><span>{ADDR_DELHI}</span></li>
-              <li><span>{ADDR_GZB}</span></li>
+              <li>info@technative.com</li>
+              <li>+91 7880275152</li>
             </ul>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} TechNative. Built for Excellence.</p>
-          <div className="footer-socials">
-            <a href="#">LinkedIn</a>
-            <a href="#">Twitter</a>
-            <a href="#">Instagram</a>
-          </div>
+          <p>© {new Date().getFullYear()} TECH NATIVE. ALL RIGHTS RESERVED.</p>
+          <div className="footer-loc">DELHI / GHAZIABAD / REMOTE</div>
         </div>
       </div>
     </footer>
   )
 }
-
